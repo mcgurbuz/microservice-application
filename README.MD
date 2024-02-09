@@ -6,13 +6,13 @@
 * Docker Desktop
 * IDE (IntelliJ)
 
-Config Server
-FeignClient
-Eureka
-Spring Cloud Stream-RabbitMQ
-Spring Cloud Zipkin
-Spring Cloud Gateway ve HystrixDashboard
-Spring Boot Admin
+* Config Server
+* FeignClient
+* Eureka
+* Spring Cloud Stream-RabbitMQ
+* Spring Cloud Zipkin
+* Spring Cloud Gateway ve HystrixDashboard
+* Spring Boot Admin
 
 
 # Proje Genel Yapisi
