@@ -5,15 +5,6 @@
 * Java JDK 11
 * Docker Desktop
 * IDE (IntelliJ)
-# Servisler
-* Config Server
-* FeignClient
-* Eureka
-* Spring Cloud Stream-RabbitMQ
-* Spring Cloud Zipkin
-* Spring Cloud Gateway ve HystrixDashboard
-* Spring Boot Admin
-
 
 # Proje Genel Yapisi
 ![](https://github.com/HaydiKodlayalim/microservice-app/blob/master/docs/arch.png)
