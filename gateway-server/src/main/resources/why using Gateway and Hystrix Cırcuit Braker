@@ -1,0 +1,16 @@
+Gateway ne işe yarıyor ?
+
+Hystrix Cırcuit : Elektrik sayaclarında kısa devre salteri cırcuit braker yaklaşımı:
+Bir istek sürekli ticket service gelirken sürekli hata alıyorsa yada bellir bir istek
+sürekli hata alıyorsa onun tekrar sisteme gelmesini engellemeye çalışmam gerekiyor.
+API GATEWAY de circuit braker patterni ile kısa devre yapıp sistem üzerinde gereksiz yük yapmamış oluyor
+Biri istek atınca API GAtewaye --> Eureka diyoruz ki instace listesi ver--> Ticket Service gidiyor
+Ticket gidiyor --> Account Ticket üzerinde hata alıyor mesala sürekli hataya düşüyorsa
+benim onu tanımlayıp kesmem lazım API GATEWAY gereksiz eureka yükü ticket yükü oluşturmasın diye
+böyle bir prensip mevcut.
+--------------------------------------------------------------------------------------
+
+
+
+
+

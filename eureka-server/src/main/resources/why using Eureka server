@@ -1,0 +1,21 @@
+Elimizde birçok mikroservisimiz var. Bu mikroservislerin bir noktada katolog oluşturulmasına ihtiyaç var.
+Kim hangi servistedir kim hangi adrestedir hangi IP de kaç tane instance var. Basitce bir registerı yapılması gerekiyor.
+Sadece merak olsun diye değil bunları bilmemiz ne işe yarar? Account Servis bir yerlerde bir istek yapıcak ve Ticket Servise erişmek isteyecek.
+Mikroservisler bazen Q larla iletişim kurar. Ama her iletişimi Q lar ile yapmak development olarak zor olabilir.
+Bazen de API dan API ya ya çağrılar yapmamız gerekecek. Bunun için Account servise ayağa kalktığında Ticket servisi nerede hangi ip hangi portta
+olduğunu bilmiyor olacak. Kime soracak Eurekaya soracak. Netflixin gelişitrmiş olduğu bir server.
+
+Aynı zamanda Load balancer yük dengeleme konusunda da bir takım kolaylıklar sağlayacak bu eureka server.
+Tickettan 5 instance var örneğin. İstek geldiğinde hangi instance karşılasın karar versin gibi
+
+ROUND RİBBON defaultta desteklediği algoritması :
+HER BİR İSTEĞİ ÖNCE 1. SONRA 2. ÖNCE 1. SONRA 2.
+
+
+YAPI ÖZETİ :
+
+    CONFİG SERVER AYAKTA, EUREKA ONA BAKIYOR, ACCOUNT SERVİS CONFİG SERVERE BAKARAK AYAĞA KALKIYOR.
+    ACCOUNT SERVİCE DE GİT EUREKA SERVERA REGİSTER OL DEMEMİZ GEREKİYOR.
+    1 ACCOUNT SERVİSİN  EUREKA SERVER DA ÇALIŞABİLMESİ İÇİN EUREKANIN CLİENTINA SAHİP OLMASI LAZIM POM.XML İÇİNDE .
+    ASLINDA VAROLAN MİKROSERVİSLER İÇİN EUREKAYA CLİENT OLMASI GEREKİYOR.
+    GİDİP SERVİCE PARENTA POM XML VERİRSEK HEPSİ İÇİN GEÇERLİ OLUR.

@@ -1,0 +1,7 @@
+HystrixDashboard ne işe yarıyor ?
+
+Hystrix bir yetenek aslında.
+Gateway içerisindeki hataları durumları isteklerin durumlarını takip edebilmemiz için
+bir dashboard.Sadece görselleştirme için işimize yarayan bir bileşen.
+
+

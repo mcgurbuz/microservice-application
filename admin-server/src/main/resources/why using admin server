@@ -1,0 +1,5 @@
+ admin server nedir ne işe yarar?
+
+Boot uygulamanın metriklerini hata seviyelerini threadleri jvm de ne kadar yer kaplıyor
+gibi gibi birçok metriği görmemizi sağlar. Bu bileşen cloud olmak zorunda değil normal
+spring boot da kullanılabilir.

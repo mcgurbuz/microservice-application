@@ -1,0 +1,12 @@
+Zipkin ne işe yarıyor ? 
+
+Çok fazlaca servisimiz olacak. 50 tane servis olabilir yatayda 
+10 ar 15 er instance olsa çalışan 400 500 tane instance olacak.
+Arayüzden bir istek gönderdiğimizde isteğimiz 5 6 mikroservis üzerinden geçerek
+isteği tamamlayacak.Bir istek bir hata aldığında o hatanın hangi servis
+hangi servisten gerçekleştiğini takip etmek çok zor oluyor. 
+Zipkin bunu çözüyor. Birtane isteğin tüm tracesini loglayan bir yapı
+Spring Cloud ile entegrasyonu söz konusu.
+
+Dependency olarak zipkin server ve ui ekliyoruz 2 adet zipkin tarafında.
+

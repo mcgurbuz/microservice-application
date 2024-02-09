@@ -1,0 +1,59 @@
+ Gateway ne işe yarıyor ?
+
+İki türlü kongirisyon yapılıyor. Biri java kodu ile diğeri ise config
+
+Nasıl çalışır Gateway ve Gateway Yapısı
+
+GATEWAY CLIENT
+------------------->  GATEWAY HANDLER MAPPING --->GATEWAY WEB HANDLER -->
+-->FILTER-FILTER-FILTER-PROXY FILTER
+
+
+CLIENT İSTEK BULUNDUĞUNDA HANDLER MAPPING DÜŞÜYOR KONFİGRASYONLARI YÖNETİR
+WEB HANDLER İLE BERABER. BİZİM EKLEYECEĞİMİZ EKSTRA FİLTRE YAPILARI OLABİLİR.
+FİLTRELERİ ÖCNELİK SIRASI CLASS OLARK CONFİG OLARAK YÖNETİLİR.
+SESSION VE AUTH TOKEN FİLTRESİ EKLEDİM GİBİ GİBİ HEPSİ GEÇTİKTEN SONRA BENİM İSTEĞİM
+MİKROSERVİSE GİDER.
+--------------------------------------------------------------------------------------
+
+  cloud:
+    gateway:
+      routes: EN ÖNEMLİ ŞEY ROUTELAR. WEB SERVİSLERİMİZİN DIŞARIYA AÇILAN KAPISI
+      HER BİR SERVİCE BİR İD VERİYORUZ.ASLINDA SERVİCE NAME
+    id: account-service
+
+    uri: lb://ACCOUNT-SERVICE
+    (account service uereka üzerindeki loadbalance ile lb: şu isimde bir service arıyor
+    olacağım. account-service. )
+
+    predicates:
+            - Path=/account/** BENİM API GATEWAYIME GELEN BÜTÜN İSTEKLER
+         /account geliyorsa tümü için account servisimi ilgilendiriyor diyorum.
+     filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
+            - name: Hystrix  (hystrix de account service tanımlıyoruz.)
+              args:
+                name: account-service (buna gelen isteklerin bütün isteklerin fb/account a gidecek.)
+                fallbackUri: forward:/fb/account (Hata durumunda )
+
+  - id: ticket-service
+   uri: lb://TICKET-SERVICE
+          predicates:
+            - Path=/ticket/**
+          filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
+            - name: Hystrix
+              args:
+                name: ticket-service
+                fallbackUri: forward:/fb/ticket
+
+
+                management:
+                 endpoints:
+                 web:
+                 exposure:
+                 include: "*"  (Hystrix üzerine gelen istatislikleri herkese açıyoruz burada management bu demek * )
+
+
+
+

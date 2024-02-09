@@ -1,0 +1,27 @@
+
+Birçok bileşen var. Servislerimiz çok fazla.
+Mikroservislerin konfigrasyonları bir yerden alması lazım.
+İş yükü çoğaldı diyelim Notification bir tane daha Notification ayağa kalkacak.
+İnstanceları çoğalacak.İnstance için bir config dosyası yada diğeri için diğeri
+Queqeu adresini nereden alıyor hangi db de tutuluyor Configrasyonları yapılmalı.
+Bütün konfigrasyonları tek bir çatı altından yönetmemizi sağlar.
+AuthServer, Eureka veya kullanılacak diğer konfigrasyon ayarları config server yapar.
+
+Bir library ekleyeceğiz. Hazır yapı sunuluyor. Biz konfigrasyonları yapıyoruz.
+Config Server : 1 gitle çalışıyor
+2 Dizin vererek çalışabilir.
+Şifreleme desteği mevcuttur.
+
+Dependency :
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+
+        ConfigServerApplication ayarlayarak resource altından parametreleri ve profile veriyoruz. Profile olmazsa hata veriyor.
+        Sonrasında mikroservice adında ve altında account-service.yml dosyasından keyler veriyoruz.
+        localhost:8888 açılmış oluyor ve  localhost:8888/account-service.yml ı yayına açmış oldu ConfigServer
+        Account Server isteyecek verdiğim keyleri diğer tarafa aktarmış olacağım.
+
+

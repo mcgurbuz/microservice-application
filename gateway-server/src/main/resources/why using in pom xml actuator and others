@@ -1,0 +1,19 @@
+GATEWAY POM:
+
+ACTUATOR DEPENDENCY Spring actuator:  Health Check , istatislikleri tutar.
+
+GATEWAY DEPENDENCY
+
+EUREKA CLIENT DEPENDENCY
+
+HYSTRIX DEPENDENCY  : CURCUIT BRAKER İÇİN
+
+
+locahost:8080/hystrix tıklanır--> Hystrix yayın yapılan adresin adını ver ben gidip
+dinleyeyim diyor.
+
+localhost:8088 gateway portu
+localhost:8088/actuator :Spring boot dışarıya çıkardığı çalışan instance ın metrikleri veriyor.
+Anlık ne oluyor bitiyor datasını almak için :  localhost:8088/actuator/hystrix.stream
+yada service registerı adresi health check servis ayakta mı hangi logger hangi log level
+bilmek istiyorsam gibi birçok adres mevcut  localhost:8088/actuator burada

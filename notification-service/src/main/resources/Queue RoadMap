@@ -1,0 +1,65 @@
+1- Notification Service and Configuration
+2-Rabbit MQ docker-compose
+3- Ticket Service queue messaging
+4-Notification Service- Account Service e mail info integration
+5-Testing
+---------------------------------------------------------------------
+   Ticket pom ve Notification pom ekle kuyruğa yazacaklara eklenecek.
+ <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId> AMQP PROTEKROLÜ
+  </dependency>
+  <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream</artifactId> CLOUD STREAM DEPENDECY
+   </dependency>
+   <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId> RABBİT AMQ
+   </dependency>
+
+   ----------------------------------------------------------
+   @EnableBinding (Source.class)
+   @EnableBinding(Sink.class)
+
+   Config Servere konfigrasyonları yazacağız. Kuyruğa yazan Ticket, Dinleyen Notification
+   spring.rabbitmq.username=haydikodlayalim
+   spring.rabbitmq.password=haydikodlayalim
+   spring.cloud.stream.bindings.output.destination=haydikodlayalim KUYRUĞUMUZA YAZAN KİŞİ PUBLİSH
+   spring.cloud.stream.bindings.input.destination=haydikodlayalim  KUYRUĞUMUZU DİNLEYEN KİŞİ SUBSC
+
+
+   Spring Cloud da spring-cloud-stream kullanarak oluşturacağız. Kuyruk konfigrasyonlarımızı yapacağız.
+
+   ---------------------------------------------------------------------
+   DOCS ALTINDA DOCKERCOMPOSE  A BUNU EKLE MSSQL İÇİN
+
+     msrabbitmq:
+       image: rabbitmq:3-management
+       ports:
+         - '5672:5672'
+         - '15672:15672'
+       environment:
+         - RABBITMQ_DEFAULT_USER=haydikodlayalim
+         - RABBITMQ_DEFAULT_PASS=haydikodlayalim
+  ----------------------------------------------------------------
+  docker compose up ile docker compose yml ayağa kalkar
+  ----------------------------------------------------------------
+  Notification Service altında
+  1-NotificationService --->Starter class basic Springboot
+  2-NotificationDistributionService-->Kuyruğu dinleyen class.
+  @EnableBinding(Sink.class)  //Kuyruk tüketen dinleyen classa verilir.
+  Kuyruk tetiklendiğinde çalışacak ortak metot yazılır.ticketNotification tipinde verilir.
+
+  ------------------------------------------------------------------------
+  Notification Kuyruğu dinleyen idi şimdi ise Kuyruğa yazacak Ticket a ekleme yapmamız bir servis
+  yazmamız gerekiyor.
+
+  TicketNotificationService interface içinde sendtoQueue yazıyoruz. Ticket parametreli.
+
+
+
+
+
+
+

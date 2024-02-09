@@ -1,0 +1,15 @@
+Sistemde 3 adet Servisim mevcut.
+1 Account
+2 Ticket
+3 Notification
+
+Mikroserviste kod olarak ortaklaştırmak çok uygun değil.
+Fakat dependency bakımından ortaklama olabilir.
+Her yerde euroka server config server gibi kullanacağım.
+Bir yerden yönetmek adına bunu yapıyoruz.Spring Boot Parentta bu şekildedir.
+
+pom xmlinde benim tüm servislerde ihtiyaç duyacağım tüm dependencyleri düzenliyorum
+SPRİNG WEB,
+CLOUD CONFİG SERVER STARTER
+DEVELOPER TOOLS
+MODELMAPPER  dependencyleri ortak örneğin.

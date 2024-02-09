@@ -1,0 +1,11 @@
+Nasıl bir adresten nasıl bir porttan yani config server adresini bilmesi gerekiyor. Bootstrap.yml o yüzden oluşturuyoruz.
+Nasıl bir konfig dosyası olmasını söylememiz lazım.
+Config server içerisindeki falan konfige bak dememiz lazım = spring.application.name dememeiz lazım.
+
+  account-service Config dosyasında account-service.yml dosyasına git oradan ayarları al diyoruz.    = spring.application.name account-service gibi.
+Localhost 8888 ise Config serverin server portu olduğu için git o porttan account-service yml dosyasını baz al diyoruz.
+
+
+
+
+
