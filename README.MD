@@ -1,5 +1,5 @@
 
-# SpringCloud Mikroservis Egitimi Serisi Projesi
+# SpringCloud Mikroservis Projesi
 
 # Gereksinimler
 * Java JDK 11
