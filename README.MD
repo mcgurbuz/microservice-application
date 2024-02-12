@@ -1,12 +1,13 @@
 
-# SpringCloud Mikroservis Projesi
+# Spring Cloud Microservice Project
 
-# Gereksinimler
+
+# Requirements
 * Java JDK 11
 * Docker Desktop
 * IDE (IntelliJ)
 
-# Proje Genel Yapisi
+# Project General Structure
 ![](https://github.com/HaydiKodlayalim/microservice-app/blob/master/docs/arch.png)
 
 
